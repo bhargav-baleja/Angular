@@ -1,0 +1,24 @@
+<button routerLink="create-employee" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create</button>
+<input type="text" placeholder="Search" size="120"/>
+<button type="button" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Search</button>
+<br>
+<br>
+<table border="2px" >
+    <tr>
+        <td>Full Name</td>
+        <td>Email <span class="glyphicon glyphicon-arrow-up"></span></td>
+        <td>Mobile</td>
+        <td>Address</td>
+        <td>Department</td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let employee of employeeDetails">
+        <td>{{employee.fullName}}</td>
+        <td>{{employee.emailId}}</td>
+        <td>{{employee.mobileNumber}}</td>
+        <td>{{employee.address.street + employee.address.city + employee.address.state + employee.address.zipCode}}</td>
+        <td>{{employee.department}}</td>
+        <button routerLink="create-employee/:id"><span class="glyphicon glyphicon-check"></span></button>
+        <button [routerLink]="['/delete-employee',employee.id]"><span class="fa fa-trash"></span></button>
+    </tr>
+</table>

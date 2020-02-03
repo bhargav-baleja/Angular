@@ -1,0 +1,37 @@
+<form [formGroup]="employeeForm" (ngSubmit)="putpostBook">
+    <div>
+      Enter the Full Name :<br>
+       <input type="text" placeholder="Full Name*" formControlName="fullName"/><br>
+      Enter the Email : <br>
+       <input type="text" placeholder="Email" formControlName="emailId"/><br>
+       Enter the Mobile Number :<br> 
+       <input type="text" placeholder="Mobile*"  formControlName="mobileNumber"/><br>
+       Enter the Address : <br>
+       <button (click)="addAddress()"> + Address</button>
+        <div formArrayName="address" *ngFor="let add of employeeForm.controls.address?.value; let i = index">
+          <div [formGroupName]="i">
+            <input placeholder="Street" formControlName="street" /><br>
+            <input placeholder="City" formControlName="city"/><br>
+            <input placeholder="State" formControlName="state"/><br>
+            <input placeholder="Pin Code" formControlName="zipCode"/><br>
+          </div>
+        </div>
+        <br>
+       Gender : <br>
+       <input type="radio" formControlName="gender" value="male"/>
+       <label> Male </label><br>
+       <input type="radio" formControlName="gender" value="female"/>
+       <label> Female </label><br>
+       <input type="radio" formControlName="gender" value="others"/>
+       <label> Others </label><br>
+       <br>Department:<br>
+       <select formControlName="department">
+        <option value="">Choose your department</option>
+        <option *ngFor="let department of departments" >{{department}}</option>
+      </select>
+    </div>
+    <br>
+    <input type="checkbox" formControlName="permanent">Permenant Employee<br>
+    <button type="submit" [disabled]="!employeeForm.valid">Submit</button>
+    <button type="button">Clear</button>
+</form>

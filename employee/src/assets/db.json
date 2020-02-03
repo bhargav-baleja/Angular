@@ -1,0 +1,20 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "fullName": "Bhargav Baleja",
+      "emailId": "bhargav.baleja.11@gmail.com",
+      "mobileNumber": "9426896228",
+      "address": {
+        "street": "B-9 Rajannagar Nandanvan Socitey Abrama,",
+        "zipCode": "396001",
+        "city": "Valsad,",
+        "state": "Gujarat,"
+      },
+      "department": "Angular",
+      "gender": "male",
+      "hireDate": "3 December 2019",
+      "permenantEmployee": false
+    }
+  ]
+}
