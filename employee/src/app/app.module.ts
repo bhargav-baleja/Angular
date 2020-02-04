@@ -5,22 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { SerachPipePipe } from './pipe/serach-pipe.pipe';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateEmployeeComponent,
-    DeleteEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    SerachPipePipe,
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
