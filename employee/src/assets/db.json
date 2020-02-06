@@ -95,6 +95,24 @@
       "hireDate": "2020-02-17",
       "permanent": true,
       "id": 5
+    },
+    {
+      "fullName": "Saumya",
+      "emailId": "saumya@123",
+      "address": [
+        {
+          "city": "",
+          "street": "VASHIYAR BRANCH",
+          "zipCode": "",
+          "state": ""
+        }
+      ],
+      "mobileNumber": "5478123256",
+      "department": "ML",
+      "gender": "male",
+      "hireDate": "2020-02-23",
+      "permanent": true,
+      "id": 6
     }
   ]
 }

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { SerachPipePipe } from './pipe/serach-pipe.pipe';
-import { OrderModule } from 'ngx-order-pipe';
+import { OrderPipe } from './pipe/order.pipe';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { OrderModule } from 'ngx-order-pipe';
     CreateEmployeeComponent,
     EmployeeDetailsComponent,
     SerachPipePipe,
+    OrderPipe,
    ],
   imports: [
     BrowserModule,
@@ -22,7 +23,6 @@ import { OrderModule } from 'ngx-order-pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,16 +13,17 @@ export class CreateEmployeeComponent {
   public operation:string="POST";
   employee;
   employeeForm:FormGroup
+  address:FormArray
   Id:number
   departments=['Angular','DevOps','QA','.Net','ML','UI/UX'];
 
   constructor(private fb:FormBuilder,private httpClient:HttpClient,private routes:ActivatedRoute) { 
 
   this.employeeForm=this.fb.group({
-    fullName:['',[Validators.required]],
+    fullName:['',[Validators.required,Validators.minLength(4)]],
     emailId:['',[Validators.required]],
-    address:this.fb.array([]),
-    mobileNumber:['',[Validators.required]],
+    address:this.fb.array([this.createItem()]),
+    mobileNumber:['',[Validators.required,Validators.maxLength(10),Validators.minLength(10)]],
     department:[''],
     gender: ['male'],
     hireDate:[''],
@@ -64,21 +65,22 @@ export class CreateEmployeeComponent {
             this.httpClient.post('http://localhost:3000/employees',this.employeeForm.value).subscribe();
         }
   }
-  addAddress()
-  {
-    const address = this.employeeForm.controls.address as FormArray;
-    address.push(this.fb.group({
+  createItem(): FormGroup {
+    return this.fb.group({
       city: [''],
       street: [''],
       zipCode:[''],
       state:[''],
-    }));
+    });
   }
-  resetForm()
+  addAddress()
   {
-      this.employeeForm.reset()
+    this.address = this.employeeForm.get('address') as FormArray;
+    this.address.push(this.createItem())
   }
-
+  get f(){
+    return this.employeeForm.controls;
   }
+}
 
   

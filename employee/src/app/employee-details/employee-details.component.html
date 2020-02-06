@@ -1,17 +1,19 @@
 <button routerLink="create-employee" class="btn btn-default"><span class="glyphicon glyphicon-plus"></span> Create</button>
-<input type="text" placeholder="Search by Name" size="120" [(ngModel)]='searchText' />
+<input type="text" placeholder="Search by Any Field" size="120" [(ngModel)]='searchText' />
 <br>
 <br>
-<table border="2px" >
+<table border="2px" style="text-size-adjust: 100px;">
     <tr>
-        <td>Full Name</td>
+        <td>Full Name<a (click)="toggleUp()" class="btn btn-default"><span class="glyphicon glyphicon-chevron-up"></span> </a>
+            <a (click)="toggleDown()" class="btn btn-default"><span class="glyphicon glyphicon-chevron-down"></span> </a>
+        </td>
         <td>Email <span class="glyphicon glyphicon-arrow-up"></span></td>
         <td>Mobile</td>
         <td>Address</td>
         <td>Department</td>
         <td></td>
     </tr>
-    <tr *ngFor="let employee of employeeDetails| orderBy: order | serachPipe: searchText : 'fullName'  ;let i=index">
+    <tr *ngFor="let employee of employeeDetails|  serachPipe: searchText | orderBy: order: reverse ">
         <td>{{employee.fullName}}</td>
         <td>{{employee.emailId}}</td>
         <td>{{employee.mobileNumber}}</td>

@@ -6,11 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SerachPipePipe implements PipeTransform {
 
   
-  transform(items: any[], value: string, label:string): any[] {
-    if (!items) return [];
-    if (!value) return  items;
-    if (value == '' || value == null) return [];
-    return items.filter(e => e[label].indexOf(value) > -1 );
-    
+  transform(value: any, args?: any): any {
+    if (!args) {
+      return value;
+    }
+    return value.filter((val) => {
+      let rVal = (val.fullName.includes(args)) || (val.emailId.includes(args)) || (val.mobileNumber.includes(args)) || (val.department.includes(args));
+      return rVal;
+    })
+
   }
 }
