@@ -1,0 +1,100 @@
+{
+  "employees": [
+    {
+      "fullName": "Bhargav Baleja",
+      "emailId": "bhargav.baleja.11@gmail.com",
+      "address": [
+        {
+          "city": "Valsad,",
+          "street": "B-9 Rajannagar Nandanvan Socitey Abrama,",
+          "zipCode": "396001",
+          "state": "Gujarat,"
+        },
+        {
+          "city": "",
+          "street": "",
+          "zipCode": "",
+          "state": ""
+        }
+      ],
+      "mobileNumber": "9426896228",
+      "department": "Angular",
+      "gender": "male",
+      "hireDate": "2020-12-03",
+      "permanent": true,
+      "id": 1
+    },
+    {
+      "fullName": "Samip Karbhari",
+      "emailId": "samip@gmail.com",
+      "address": [
+        {
+          "city": "Valsad",
+          "street": "VASHIYAR BRANCH",
+          "zipCode": "396001",
+          "state": "Gujrat"
+        }
+      ],
+      "mobileNumber": "2356891245",
+      "department": "Angular",
+      "gender": "male",
+      "hireDate": "2020-02-08",
+      "permanent": "",
+      "id": 2
+    },
+    {
+      "fullName": "Shiv Desai",
+      "emailId": "shiv@gmail.com",
+      "address": [
+        {
+          "city": "Valsad",
+          "street": "Halar road",
+          "zipCode": "396001",
+          "state": "Gujrat"
+        }
+      ],
+      "mobileNumber": "7889455623",
+      "department": "QA",
+      "gender": "male",
+      "hireDate": "2020-02-29",
+      "permanent": true,
+      "id": 3
+    },
+    {
+      "fullName": "Taps Vashi",
+      "emailId": "tapas@gmail.com",
+      "address": [
+        {
+          "city": "Valsad",
+          "street": "Chipwad road ",
+          "zipCode": "396001",
+          "state": "Gujrat"
+        }
+      ],
+      "mobileNumber": "7946132558",
+      "department": ".Net",
+      "gender": "male",
+      "hireDate": "2020-02-16",
+      "permanent": "",
+      "id": 4
+    },
+    {
+      "fullName": "Aastha Yadav",
+      "emailId": "aastha@gmail.com",
+      "address": [
+        {
+          "city": "Navsari",
+          "street": "Railway road",
+          "zipCode": "396009",
+          "state": "Gujrat"
+        }
+      ],
+      "mobileNumber": "1447255836",
+      "department": "UI/UX",
+      "gender": "female",
+      "hireDate": "2020-02-17",
+      "permanent": true,
+      "id": 5
+    }
+  ]
+}

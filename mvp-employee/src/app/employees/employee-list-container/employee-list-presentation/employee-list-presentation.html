@@ -1,0 +1,19 @@
+<table border="2px" style="text-size-adjust: 100px;">
+    <tr>
+        <th>Full Name
+        </th>
+        <th>Email </th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Department</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let employee of employees$ | async">
+        <td>{{employee.fullName}}</td>
+        <td>{{employee.emailId}}</td>
+        <td>{{employee.mobileNumber}}</td>
+        <td><span *ngFor="let add of employee.address">{{add.street + add.city + add.state + add.zipCode}}</span></td>
+        <td>{{employee.department}}</td>
+        <button (click)="onDelete(employee.id)">Delete</button>
+    </tr>
+</table>
