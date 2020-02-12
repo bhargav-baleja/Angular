@@ -1,8 +1,8 @@
 class Employee
 {
-        fullName: string
-        emailId: string
-        address?: Address[]
+    fullName: string
+    emailId: string
+    address?: Address[]
     mobileNumber: number
     department: string
     gender: string

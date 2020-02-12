@@ -6,7 +6,7 @@ import { EmployeeFormContainer } from './employee-form-container/employee-form-c
 import { EmployeeListPresentation } from './employee-list-container/employee-list-presentation/employee-list-presentation';
 import { EmployeeFormPresentation } from './employee-form-container/employee-form-presentation/employee-form-presentation';
 import { EmployeeListContainer } from './employee-list-container/employee-list-container';
-
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { EmployeeListContainer } from './employee-list-container/employee-list-c
     CommonModule,
     EmployeesRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ]
 })
 export class EmployeesModule { }

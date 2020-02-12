@@ -9,12 +9,17 @@ import { EmployeeService } from '../employee.service';
 })
 
 export class EmployeeListContainer implements OnInit{
-    employeeDetails$:Observable<Employee[]>;
+    employeeDetails$:Observable<Employee>;
 
     constructor(private employeeService:EmployeeService) {
     }
 
     ngOnInit()
+    {
+        this.getAllEmployee()
+    }
+
+    getAllEmployee()
     {
         this.employeeDetails$=this.employeeService.getAllData()
     }
@@ -22,6 +27,11 @@ export class EmployeeListContainer implements OnInit{
     deleteEmployee(id:number)
     {
         this.employeeService.deleteData(id)
-        this.employeeDetails$=this.employeeService.getAllData()
+        this.getAllEmployee()
+    }
+
+    editEmployee(id:number)
+    {
+        this.employeeService.getId(id)
     }
 }

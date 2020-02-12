@@ -14,6 +14,7 @@
         <td>{{employee.mobileNumber}}</td>
         <td><span *ngFor="let add of employee.address">{{add.street + add.city + add.state + add.zipCode}}</span></td>
         <td>{{employee.department}}</td>
+        <button (click)="onEdit(employee.id)">Edit</button>
         <button (click)="onDelete(employee.id)">Delete</button>
     </tr>
 </table>

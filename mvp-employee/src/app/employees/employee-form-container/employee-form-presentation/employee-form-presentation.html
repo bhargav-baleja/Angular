@@ -1,0 +1,54 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()" style="text-align:justify;">
+    <div>
+        <b style="font-size: larger;"> Enter the Full Name :</b><br>
+        <input type="text" placeholder="Full Name*" formControlName="fullName"  size="120"/><br>
+        <div *ngIf="f.fullName.invalid && (f.fullName.dirty || f.fullName.touched)">
+         <div *ngIf="f.fullName.errors.minlength" style="color: red;">
+           <b>Name must be at least 4 characters long.</b>
+         </div>
+       </div>
+       <br>
+      <b style="font-size: larger;">Enter the Email :</b> <br>
+       <input type="text" placeholder="Email*" formControlName="emailId"  size="120"/><br>
+       <br>
+       <b style="font-size: larger;"> Enter the Mobile Number :</b><br> 
+       <input type="text" placeholder="Mobile*"  formControlName="mobileNumber"  size="120"/><br>
+       <div *ngIf="f.mobileNumber.invalid && (f.mobileNumber.dirty || f.mobileNumber.touched)">
+        <div *ngIf="f.mobileNumber.errors.minlength || f.mobileNumber.errors.maxlength" style="color: red;">
+          <b>Mobile number should be of 10 digits.</b>
+        </div>
+      </div>
+      <br>
+    <b style="font-size: larger;">Enter the Address : </b><br>
+       <h3><span (click)="newAddress()" style="cursor: pointer"> + Address</span> </h3>
+       <div formArrayName="address" *ngFor="let add of empForm.get('address').controls ; let i = index;">
+       <div [formGroupName]="i">
+           Address:{{i+1}}<br>
+         <input type="text" formControlName="street" placeholder="Street" size="50">
+         <input type="text" formControlName="city" placeholder="City" size="30">
+         <input type="text" formControlName="state" placeholder="State" size="30">
+         <input type="text" formControlName="zipCode" placeholder="Pin Code" size="30">
+       </div>
+       </div>
+        <br>
+       <b style="font-size: larger;">Gender : </b><br>
+       <input type="radio" formControlName="gender" value="male"/>
+       <label> Male </label><br>
+       <input type="radio" formControlName="gender" value="female"/>
+       <label> Female </label><br>
+       <input type="radio" formControlName="gender" value="others"/>
+       <label> Others </label><br>
+       <br><b>Department:</b><br>
+       <select formControlName="department">
+        <option value="">Choose your department</option>
+        <option *ngFor="let department of departments" >{{department}}</option>
+      </select>
+    </div>
+    <br>
+    <label ><b style="font-size: larger;">Hire date:</b><br>
+      <input type="date" id="start" name="hiredate" value="2018-07-22" min="1900-01-01" max="3000-12-31" formControlName="hireDate" size="50"><br><br>
+</label><br>
+    <input type="checkbox" formControlName="permanent"><b style="font-size: larger;">Permanent Employee</b><br><br>
+    <button type="submit" [disabled]="!empForm.valid">Enter</button>
+    <button type="reset">Clear</button>
+</form>

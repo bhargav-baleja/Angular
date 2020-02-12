@@ -12,7 +12,7 @@ import { EmployeesModule } from './employees/employees.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EmployeesModule
+    EmployeesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

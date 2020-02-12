@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 })
 
 export class EmployeeListPresentation{
-    @Input() employees$:Observable<Employee[]>;
+    @Input() employees$:Observable<Employee>;
     @Output() deleteEvent=new EventEmitter<number>();
+    @Output() editEvent=new EventEmitter<number>();
     constructor() {}
 
     onDelete(id:number)
     {
         this.deleteEvent.emit(id)
+    }
+    onEdit(id:number)
+    {
+        this.editEvent.emit(id)
     }
 }
