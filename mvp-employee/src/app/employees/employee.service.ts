@@ -3,41 +3,35 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EmployeeService {
 
-  baseUrl:string='http://localhost:3000/employees'
+  private apiUrl:string
+
   constructor(private httpClient:HttpClient,private route:Router) { 
+    this.apiUrl=environment.baseUrl
   }
 
-  getAllData():Observable<Employee>
+  public getAllData():Observable<Employee[]>
   {
-    return this.httpClient.get<Employee>(`${this.baseUrl}`)
+    return this.httpClient.get<Employee[]>(`${this.apiUrl}`)
   }
-  getData(id:number):Observable<Employee>
+  public getData(id:number):Observable<Employee>
   {
-    return this.httpClient.get<Employee>(`${this.baseUrl}`+`/${id}`)
+    return this.httpClient.get<Employee>(`${this.apiUrl}`+`/${id}`)
   }
-  addData(employee:FormGroup)
+  public addData(employee:Employee):Observable<Employee>
   {
-    return this.httpClient.post(`${this.baseUrl}`,employee.value).subscribe()
+    return this.httpClient.post<Employee>(`${this.apiUrl}`,employee)
   }
-  editData(employee:FormGroup,id:number)
+  public editData(employee:Employee,id:number):Observable<Employee>
   {
-    return this.httpClient.put(`${this.baseUrl}`+`/${id}`,employee.value).subscribe()
+    return this.httpClient.put<Employee>(`${this.apiUrl}`+`/${id}`,employee)
   }
-  deleteData(id:number)
+  public deleteData(id:number):Observable<Employee>
   {
-    if(confirm("Are you Sure ?"+id))
-    {
-      return this.httpClient.delete(`${this.baseUrl}`+`/${id}`).subscribe()
-    }
-  }
-  getId(id:number)
-  {
-      this.route.navigate(['/employee-form-container',id])
+      return this.httpClient.delete<Employee>(`${this.apiUrl}`+`/${id}`)
   }
 }

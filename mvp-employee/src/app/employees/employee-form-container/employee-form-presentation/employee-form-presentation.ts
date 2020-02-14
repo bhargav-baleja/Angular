@@ -1,46 +1,58 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EmployeeFormPresenter } from './employee-form-presenter/employee-form.presenter';
+import { Component,Input, Output, EventEmitter} from '@angular/core';
+
 import { FormGroup } from '@angular/forms';
-import { async } from '@angular/core/testing';
+import { EmployeeFormPresenter } from '../employee-form-presenter/employee-form.presenter';
 
 @Component({
   selector: 'app-employee-form-presentation-ui',
   templateUrl: './employee-form-presentation.html',
-  styleUrls: ['./employee-form-presentation.css']
+  styleUrls: ['./employee-form-presentation.css'],
+  providers:[EmployeeFormPresenter]
 })
 
-export class EmployeeFormPresentation implements OnChanges{
+export class EmployeeFormPresentation {
 
-  @Input() employee:Employee
-  @Output() createEvent= new EventEmitter<FormGroup>()
-  constructor(private empFormPresenter:EmployeeFormPresenter){}
-  empForm:FormGroup
-  departments:string[]
-  ngOnChanges() {
-    if(this.employee)
+  public employeeFormDetails:FormGroup
+  public departments:string[]
+  private employeeDetails:Employee
+
+  @Input() set employee(value:Employee)
+  {
+    if(value)
     {
-      this.empForm= this.empFormPresenter.createEmployeeForm()
-      this.departments=this.empFormPresenter.departments
-      console.log(this.employee)
-      this.empForm.patchValue(this.employee)
-    }
-    else
-    {
-      this.empForm= this.empFormPresenter.createEmployeeForm()
-      this.departments=this.empFormPresenter.departments
+      this.employeeDetails=value
+      for(let i=1;i<this.employee.address.length;i++)
+      {
+        this.newAddress()
+      }
+      this.employeeFormDetails.patchValue(this.employee)
     }
   }
+  get employee()
+  {
+    return this.employeeDetails
+  }
+  @Output() createEvent= new EventEmitter<Employee>()
+
+  constructor(private employeeFormPresenter:EmployeeFormPresenter){
+    this.employeeFormDetails=this.employeeFormPresenter.createEmployeeForm()
+    this.departments=this.employeeFormPresenter.departments
+  }
+
   get f()
   {
-    return this.empForm.controls
+    return this.employeeFormDetails.controls
   }
-  newAddress()
+  newAddress():void
   {
-    this.empFormPresenter.addAddress()
+    this.employeeFormPresenter.addAddress()
   }
-  onSubmit()
+  onSubmit():void
   {
-    this.createEvent.emit(this.empForm)
+    this.createEvent.emit(this.employeeFormDetails.value)
+  }
+  removeAddress(index:number):void
+  {
+    this.employeeFormPresenter.removeGroup(index)
   }
 }

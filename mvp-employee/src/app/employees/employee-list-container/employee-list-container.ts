@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EmployeeService } from '../employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-list',
@@ -9,9 +10,9 @@ import { EmployeeService } from '../employee.service';
 })
 
 export class EmployeeListContainer implements OnInit{
-    employeeDetails$:Observable<Employee>;
+    public employeeDetails$:Observable<Employee[]>;
 
-    constructor(private employeeService:EmployeeService) {
+    constructor(private employeeService:EmployeeService,private route:Router) {
     }
 
     ngOnInit()
@@ -19,19 +20,14 @@ export class EmployeeListContainer implements OnInit{
         this.getAllEmployee()
     }
 
-    getAllEmployee()
+    private getAllEmployee():void
     {
         this.employeeDetails$=this.employeeService.getAllData()
     }
 
-    deleteEmployee(id:number)
+    public deleteEmployee(id:number):void
     {
-        this.employeeService.deleteData(id)
+        this.employeeService.deleteData(id).subscribe()
         this.getAllEmployee()
-    }
-
-    editEmployee(id:number)
-    {
-        this.employeeService.getId(id)
     }
 }

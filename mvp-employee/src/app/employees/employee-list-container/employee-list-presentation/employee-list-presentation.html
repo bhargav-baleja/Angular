@@ -1,3 +1,4 @@
+<button routerLink="employee-form-container">+ CREATE</button>
 <table border="2px" style="text-size-adjust: 100px;">
     <tr>
         <th>Full Name
@@ -8,13 +9,13 @@
         <th>Department</th>
         <th></th>
     </tr>
-    <tr *ngFor="let employee of employees$ | async">
+    <tr *ngFor="let employee of employees$">
         <td>{{employee.fullName}}</td>
         <td>{{employee.emailId}}</td>
         <td>{{employee.mobileNumber}}</td>
         <td><span *ngFor="let add of employee.address">{{add.street + add.city + add.state + add.zipCode}}</span></td>
         <td>{{employee.department}}</td>
-        <button (click)="onEdit(employee.id)">Edit</button>
+        <button routerLink="employee-form-container/{{employee.id}}">Edit</button>
         <button (click)="onDelete(employee.id)">Delete</button>
     </tr>
 </table>

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { Observable } from 'rxjs';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-form-container',
@@ -12,10 +11,10 @@ import { FormGroup } from '@angular/forms';
 
 export class EmployeeFormContainer implements OnInit{
 
-  id:number
-  employeeDetails$:Observable<Employee>;
+  private id:number
+  public employeeDetails$:Observable<Employee>;
 
-  constructor(private routes:ActivatedRoute,private employeeService:EmployeeService){
+  constructor(private routes:ActivatedRoute,private employeeService:EmployeeService,private route:Router){
     this.id=this.routes.snapshot.params['id']
   }
 
@@ -27,15 +26,16 @@ export class EmployeeFormContainer implements OnInit{
     }
   }
 
-  createEmployee(empForm:FormGroup)
+  createEmployee(employeeForm:Employee):void
   {
     if(!this.id)
     {
-      this.employeeService.addData(empForm)
+      this.employeeService.addData(employeeForm).subscribe()
+      this.route.navigate([''])
     }
     else
     {
-      this.employeeService.editData(empForm,this.id)
+      this.employeeService.editData(employeeForm,this.id).subscribe()
     }
   }
 }

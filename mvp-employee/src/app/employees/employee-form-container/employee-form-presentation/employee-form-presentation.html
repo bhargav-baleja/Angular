@@ -1,4 +1,5 @@
-<form [formGroup]="empForm" (ngSubmit)="onSubmit()" style="text-align:justify;">
+<div>
+<form [formGroup]="employeeFormDetails" (ngSubmit)="onSubmit()" style="text-align:justify;">
     <div>
         <b style="font-size: larger;"> Enter the Full Name :</b><br>
         <input type="text" placeholder="Full Name*" formControlName="fullName"  size="120"/><br>
@@ -21,7 +22,7 @@
       <br>
     <b style="font-size: larger;">Enter the Address : </b><br>
        <h3><span (click)="newAddress()" style="cursor: pointer"> + Address</span> </h3>
-       <div formArrayName="address" *ngFor="let add of empForm.get('address').controls ; let i = index;">
+       <div formArrayName="address" *ngFor="let add of employeeFormDetails.get('address').controls ; let i = index;">
        <div [formGroupName]="i">
            Address:{{i+1}}<br>
          <input type="text" formControlName="street" placeholder="Street" size="50">
@@ -29,6 +30,7 @@
          <input type="text" formControlName="state" placeholder="State" size="30">
          <input type="text" formControlName="zipCode" placeholder="Pin Code" size="30">
        </div>
+       <button (click)="removeAddress(i)">Remove</button>
        </div>
         <br>
        <b style="font-size: larger;">Gender : </b><br>
@@ -46,9 +48,10 @@
     </div>
     <br>
     <label ><b style="font-size: larger;">Hire date:</b><br>
-      <input type="date" id="start" name="hiredate" value="2018-07-22" min="1900-01-01" max="3000-12-31" formControlName="hireDate" size="50"><br><br>
+      <input type="date" id="start" value="2018-07-22" min="1900-01-01" max="3000-12-31" formControlName="hireDate" size="50"><br><br>
 </label><br>
     <input type="checkbox" formControlName="permanent"><b style="font-size: larger;">Permanent Employee</b><br><br>
-    <button type="submit" [disabled]="!empForm.valid">Enter</button>
+    <button type="submit" [disabled]="!employeeFormDetails.valid">Enter</button>
     <button type="reset">Clear</button>
 </form>
+</div>
