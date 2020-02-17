@@ -30,13 +30,18 @@ export class EmployeeFormContainer implements OnInit{
   {
     if(!this.id)
     {
-      this.employeeService.addData(employeeForm).subscribe()
-      this.route.navigate(['/employees'])
+      this.employeeService.addData(employeeForm).subscribe(()=>
+      {
+        this.route.navigate(['/employees'])
+      })
     }
     else
     {
-      this.employeeService.editData(employeeForm,this.id).subscribe()
-      this.route.navigate(['/employees'])
+      this.employeeService.editData(employeeForm,this.id).subscribe(()=>
+      {
+        this.route.navigate(['/employees'])
+      })
+      
     }
   }
 }

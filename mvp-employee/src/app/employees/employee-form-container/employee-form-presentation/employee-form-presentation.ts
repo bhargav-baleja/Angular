@@ -32,9 +32,10 @@ export class EmployeeFormPresentation {
   {
     return this.employeeDetails
   }
-  @Output() createEvent= new EventEmitter<Employee>()
+  @Output() create= new EventEmitter<Employee>()
 
   constructor(private employeeFormPresenter:EmployeeFormPresenter){
+    this.create= new EventEmitter<Employee>()
     this.employeeFormDetails=this.employeeFormPresenter.createEmployeeForm()
     this.departments=this.employeeFormPresenter.departments
   }
@@ -49,7 +50,7 @@ export class EmployeeFormPresentation {
   }
   onSubmit():void
   {
-    this.createEvent.emit(this.employeeFormDetails.value)
+    this.create.emit(this.employeeFormDetails.value)
   }
   removeAddress(index:number):void
   {

@@ -8,29 +8,36 @@ import { Observable } from 'rxjs';
 })
 
 export class EmployeeListPresentation{
+  
     sortBy:string
+
     @Input() public employees$:Observable<Employee>;
-    @Output() public deleteEvent=new EventEmitter<number>();
-    @Output() public searchEvent=new EventEmitter<string>();
-    @Output() public sortEvent=new EventEmitter<string>();
-    constructor() {}
+    @Output() public delete
+    @Output() public search
+    @Output() public sort
+
+    constructor() {
+      this.delete=new EventEmitter<number>();
+      this.search=new EventEmitter<string>();
+      this.sort=new EventEmitter<string>();
+    }
 
     public onDelete(id:number):void
     {
-        this.deleteEvent.emit(id)
+        this.delete.emit(id)
     }
     public searchData(event:string):void
     {
-        this.searchEvent.emit(event)
+        this.search.emit(event)
     }
     public sortAscending():void
     {
         this.sortBy=document.activeElement.id
-        this.sortEvent.emit(`_sort=${this.sortBy}&_order=asc`)
+        this.sort.emit(`_sort=${this.sortBy}&_order=asc`)
     }
     public sortDescending():void
     {
         this.sortBy=document.activeElement.id
-        this.sortEvent.emit(`_sort=${this.sortBy}&_order=desc`)
+        this.sort.emit(`_sort=${this.sortBy}&_order=desc`)
     }
 }

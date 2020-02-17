@@ -13,6 +13,7 @@ export class EmployeeListContainer implements OnInit{
     public employeeDetails$:Observable<Employee[]>;
     
     constructor(private employeeService:EmployeeService,private route:Router) {
+      
     }
 
     ngOnInit()
@@ -27,8 +28,10 @@ export class EmployeeListContainer implements OnInit{
 
     public deleteEmployee(id:number):void
     {
-        this.employeeService.deleteData(id).subscribe()
-        this.getAllEmployee()
+        this.employeeService.deleteData(id).subscribe(()=>
+        {
+            this.getAllEmployee()
+        })
     }
     public searchText(searchInfo:string):void
     {
