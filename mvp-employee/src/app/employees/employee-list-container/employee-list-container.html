@@ -1,1 +1,2 @@
-<app-employee-list-presentation-ui (deleteEvent)="deleteEmployee($event)" [employees$]="employeeDetails$ | async" ></app-employee-list-presentation-ui>
+<app-employee-list-presentation-ui (deleteEvent)="deleteEmployee($event)" (searchEvent)="searchText($event)" (sortEvent)="sortData($event)" 
+[employees$]="employeeDetails$ | async" ></app-employee-list-presentation-ui>

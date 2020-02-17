@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class EmployeeListContainer implements OnInit{
     public employeeDetails$:Observable<Employee[]>;
-
+    
     constructor(private employeeService:EmployeeService,private route:Router) {
     }
 
@@ -29,5 +29,13 @@ export class EmployeeListContainer implements OnInit{
     {
         this.employeeService.deleteData(id).subscribe()
         this.getAllEmployee()
+    }
+    public searchText(searchInfo:string):void
+    {
+        this.employeeDetails$=this.employeeService.searchData(searchInfo)
+    }
+    public sortData(sortField:string):void
+    {
+        this.employeeDetails$=this.employeeService.sortData(sortField)
     }
 }

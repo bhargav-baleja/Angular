@@ -34,4 +34,12 @@ export class EmployeeService {
   {
       return this.httpClient.delete<Employee>(`${this.apiUrl}`+`/${id}`)
   }
+  public searchData(searchText:string):Observable<Employee[]>
+  {
+    return this.httpClient.get<Employee[]>(`${this.apiUrl}?q=${searchText}`)
+  }
+  public sortData(sortField:string):Observable<Employee[]>
+  {
+    return this.httpClient.get<Employee[]>(`${this.apiUrl}?${sortField}`)
+  }
 }

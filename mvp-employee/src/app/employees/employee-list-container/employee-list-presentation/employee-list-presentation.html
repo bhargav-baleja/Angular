@@ -1,12 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+</html>
+
+
 <button routerLink="employee-form-container">+ CREATE</button>
+<input type="text" placeholder="Search" (keyup)="searchData($event.target .value)" size="131"/>
 <table border="2px" style="text-size-adjust: 100px;">
     <tr>
         <th>Full Name
+            <button class="glyphicon" id="fullName" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
+            <button class="glyphicon" id="fullName" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
         </th>
-        <th>Email </th>
-        <th>Mobile</th>
-        <th>Address</th>
-        <th>Department</th>
+        <th>Email
+            <button class="glyphicon" id="emailId" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
+            <button class="glyphicon" id="emailId" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
+        </th>
+        <th>Mobile
+            <button class="glyphicon" id="mobileNumber" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
+            <button class="glyphicon" id="mobileNumber" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
+        </th>
+        <th>Address
+            <button class="glyphicon" id="address" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
+            <button class="glyphicon" id="address" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
+        </th>
+        <th>Department
+            <button class="glyphicon" id="department" (click)="sortAscending()" style="cursor: grabbing;">&#xe113;</button> 
+            <button class="glyphicon" id="department" (click)="sortDescending()" style="cursor: grabbing;">&#xe114;</button>
+        </th>
         <th></th>
     </tr>
     <tr *ngFor="let employee of employees$">
