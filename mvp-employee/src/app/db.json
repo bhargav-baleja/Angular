@@ -65,11 +65,11 @@
           "state": "Gujrat"
         }
       ],
-      "mobileNumber": "0987984341",
+      "mobileNumber": "0987984342",
       "department": "QA",
       "gender": "male",
-      "hireDate": "2020-02-10",
-      "permanent": "",
+      "hireDate": "2020-11-10",
+      "permanent": false,
       "id": 7
     },
     {
