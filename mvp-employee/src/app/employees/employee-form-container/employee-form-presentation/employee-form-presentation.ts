@@ -44,14 +44,29 @@ export class EmployeeFormPresentation {
   {
     return this.employeeFormDetails.controls
   }
+
+  /**
+   * 
+   */
   newAddress():void
   {
     this.employeeFormPresenter.addAddress()
   }
+
+  /**
+   * on Submit emits an object of type Employee
+   */
+
   onSubmit():void
   {
     this.create.emit(this.employeeFormDetails.value)
   }
+
+  /**
+   * 
+   * @param index // Removes address from formGroup from given index
+   */
+
   removeAddress(index:number):void
   {
     this.employeeFormPresenter.removeGroup(index)
