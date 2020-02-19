@@ -1,0 +1,14 @@
+h1 
+{
+     font-family: Lato; 
+}
+.gujarati-component 
+{
+     border: 1px solid gray;
+     padding: 5px;
+     padding-bottom: 20px;
+     padding-left: 20px;
+     border-radius: 10px;
+     background-color: lightgreen;
+     color: black;
+   }

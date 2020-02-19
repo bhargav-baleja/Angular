@@ -1,0 +1,11 @@
+<h1>Dynamic Component Loading........</h1>
+<button (click)="loadComponent()">Factory</button>
+<button (click)="cdkPortal()">Cdk Portal</button>
+<button (click)="overlayComponent()">Overlay</button><br><br>
+<ng-template appDynamicComponent></ng-template>
+<ng-template [cdkPortalOutlet]="selectedPortal"></ng-template>
+<br><br>
+<button *ngIf="buttonEnable" (click)="setPortal(componentPortalChinese)">Chinese</button>
+<button *ngIf="buttonEnable" (click)="setPortal(componentPortalHindi)">Hindi</button>
+<button *ngIf="buttonEnable" (click)="detachPortal()">Back</button>
+
