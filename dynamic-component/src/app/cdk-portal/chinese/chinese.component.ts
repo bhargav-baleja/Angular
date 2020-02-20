@@ -7,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChineseComponent implements OnInit {
 
-  constructor() { }
-
+  public name:string
+  public emojiType:string
+  constructor() { 
+    this.name='BHARGAV'
+  }
+  
   ngOnInit() {
   }
 

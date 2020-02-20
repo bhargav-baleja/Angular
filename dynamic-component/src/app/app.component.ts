@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { DynamicComponentDirective } from './directive/dynamic-component.directive';
 import { EnglishComponent } from './component-factory-resolver/english/english.component';
 import { GujaratiComponent } from './component-factory-resolver/gujarati/gujarati.component';
@@ -14,7 +14,7 @@ import { MarathiComponent } from './overlay/marathi/marathi.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit,OnDestroy {
+export class AppComponent implements OnDestroy {
 
   private dynamic:any
   private interval:any
@@ -32,10 +32,6 @@ export class AppComponent implements OnInit,OnDestroy {
     this.dynamic=EnglishComponent
   }
 
-  ngOnInit()
-  {
-    
-  }
   ngOnDestroy()
   {
     console.log('Destroy');
@@ -80,12 +76,13 @@ export class AppComponent implements OnInit,OnDestroy {
 
     let overlayRef=this.overlay.create(config);
 
+    overlayRef.attach(new ComponentPortal(MarathiComponent,this.dynamicComponent.viewContainerRef))
+
     overlayRef.backdropClick().subscribe(()=>
       {
           overlayRef.dispose()
       })
 
-    overlayRef.attach(new ComponentPortal(MarathiComponent,this.dynamicComponent.viewContainerRef))
   }
 
   switch()

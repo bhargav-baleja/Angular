@@ -1,3 +1,31 @@
 <div class="hindi-component">
     <h1>नमस्कार भार्गव </h1>
 </div>
+<h1>Date Pipe</h1>
+<p>{{birthDate | date:dateFormat | titlecase}}</p>
+<button (click)="changeToggle()">Change</button><br>
+
+<h1>Currency Pipe</h1>
+<b>Currency in US:</b>
+<p>{{money | currency:'USD'}}</p>
+<b>Currency in India:</b>
+<p>{{money | currency:'INR'}}</p>
+<b>Currency in Iraqi:</b>
+<p>{{money | currency:'IQD':'symbol':'3.2-4'}}</p>
+
+<h1>Decimal Pipe</h1>
+<p>{{digit | number:'2.2-5'}}</p>
+
+<h1>Json Pipe</h1>
+<p>{{object | json}}</p>
+
+<h1>KeyValue Pipe</h1>
+<div *ngFor="let item of object | keyvalue">
+    {{item.key}}:{{item.value}}
+</div>
+
+<h1>Percent Pipe</h1>
+<p>{{toPercentage | percent:'2.2-2'}}</p>
+
+<h1>Slice Pipe</h1>
+<p>{{str}}:{{str | slice:1:6}}</p>

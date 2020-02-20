@@ -1,3 +1,13 @@
 <div class="chinese-component">
-    <h1>你好 Bhargav </h1>
+    <h1>你好 {{name | lowercase}} </h1>
 </div>
+<form>
+    <b style="font-size: larger;">Emoji Type : </b><br>
+       <input type="radio" name="emoji" value="sad" [(ngModel)]="emojiType"/>
+       <label> Sad </label><br>
+       <input type="radio" name="emoji" value="happy" [(ngModel)]="emojiType"/>
+       <label> Happy </label><br>
+       <input type="radio" name="emoji" value="angry" [(ngModel)]="emojiType"/>
+       <label> Angry </label><br>
+</form>
+<h1 style="font-size: 120px;">{{emojiType | emoji}}</h1>

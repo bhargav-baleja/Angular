@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { ChineseComponent } from './cdk-portal/chinese/chinese.component';
 import { HindiComponent } from './cdk-portal/hindi/hindi.component';
 import { MarathiComponent } from './overlay/marathi/marathi.component';
+import { EmojiPipe } from './pipe/emoji.pipe';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { MarathiComponent } from './overlay/marathi/marathi.component';
     DynamicComponentDirective,
     ChineseComponent,
     HindiComponent,
-    MarathiComponent
+    MarathiComponent,
+    EmojiPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     PortalModule,
-    OverlayModule
+    OverlayModule,
+    FormsModule
   ],
   entryComponents:[EnglishComponent,GujaratiComponent,ChineseComponent,HindiComponent,MarathiComponent],
   providers: [],

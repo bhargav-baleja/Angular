@@ -9,4 +9,6 @@ export class EnglishComponent {
 
   @Input() data:string;
 
+  
+
 }
