@@ -11,3 +11,14 @@
        <label> Angry </label><br>
 </form>
 <h1 style="font-size: 120px;">{{emojiType | emoji}}</h1>
+
+<input type="text" [(ngModel)]="value"/>
+<div [ngPlural]="value">
+    <ng-template ngPluralCase="=0">Zero</ng-template>
+    <ng-template ngPluralCase="=1">One</ng-template>
+    <ng-template ngPluralCase="=2">Two</ng-template>
+    <ng-template ngPluralCase="=3">Few</ng-template>
+    <ng-template ngPluralCase="=4">Many</ng-template>
+    <ng-template ngPluralCase="other">Others</ng-template>
+</div>
+

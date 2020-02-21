@@ -32,7 +32,7 @@ import { FormsModule } from '@angular/forms'
     CommonModule,
     PortalModule,
     OverlayModule,
-    FormsModule
+    FormsModule,
   ],
   entryComponents:[EnglishComponent,GujaratiComponent,ChineseComponent,HindiComponent,MarathiComponent],
   providers: [],
