@@ -3,8 +3,8 @@
     <div>
         <b style="font-size: larger;"> Enter the Full Name :</b><br>
         <input type="text" placeholder="Full Name*" formControlName="fullName"  size="120"/><br>
-        <div *ngIf="f.fullName.invalid && (f.fullName.dirty || f.fullName.touched)">
-         <div *ngIf="f.fullName.errors.minlength" style="color: red;">
+        <div *ngIf="controls.fullName.invalid && (controls.fullName.dirty || controls.fullName.touched)">
+         <div *ngIf="controls.fullName.errors.minlength" style="color: red;">
            <b>Name must be at least 4 characters long.</b>
          </div>
        </div>
@@ -14,15 +14,15 @@
        <br>
        <b style="font-size: larger;"> Enter the Mobile Number :</b><br> 
        <input type="text" placeholder="Mobile*"  formControlName="mobileNumber"  size="120"/><br>
-       <div *ngIf="f.mobileNumber.invalid && (f.mobileNumber.dirty || f.mobileNumber.touched)">
-        <div *ngIf="f.mobileNumber.errors.minlength || f.mobileNumber.errors.maxlength" style="color: red;">
+       <div *ngIf="controls.mobileNumber.invalid && (controls.mobileNumber.dirty || controls.mobileNumber.touched)">
+        <div *ngIf="controls.mobileNumber.errors.minlength || controls.mobileNumber.errors.maxlength" style="color: red;">
           <b>Mobile number should be of 10 digits.</b>
         </div>
       </div>
       <br>
     <b style="font-size: larger;">Enter the Address : </b><br>
        <h3><span (click)="newAddress()" style="cursor: pointer"> + Address</span> </h3>
-       <div formArrayName="address" *ngFor="let add of employeeFormDetails.get('address').controls ; let i = index;">
+       <div formArrayName="address" *ngFor="let address of employeeFormDetails.get('address').controls ; let i = index;">
        <div [formGroupName]="i">
            Address:{{i+1}}<br>
          <input type="text" formControlName="street" placeholder="Street" size="50">

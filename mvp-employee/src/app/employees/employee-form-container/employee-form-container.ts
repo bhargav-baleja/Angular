@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { EmployeeService } from '../employee.service';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-employee-form-container',
@@ -11,35 +13,48 @@ import { Observable } from 'rxjs';
 
 export class EmployeeFormContainer implements OnInit{
 
-  private id:number
-  public employeeDetails$:Observable<Employee>;
+  private id:number;       //Stores id of Employee
 
-  constructor(private routes:ActivatedRoute,private employeeService:EmployeeService,private route:Router){
-    this.id=this.routes.snapshot.params['id']
+  public employeeDetails$:Observable<Employee>;      //Stores the details of Employee
+
+  constructor(private routes:ActivatedRoute,private employeeService:EmployeeService,private route:Router)
+  {
+    this.id=this.routes.snapshot.params['id'];     //Gets the id of Employee from routeLink
   }
 
   ngOnInit()
   {
     if(this.id)
     {
-      this.employeeDetails$=this.employeeService.getData(this.id);
+      alert("Updating existing Employee")
+      this.employeeDetails$=this.employeeService.getData(this.id);   
+    }
+    else
+    {
+      alert("Creating new Employee");
     }
   }
 
-  createEmployee(employeeForm:Employee):void
+  /**
+   * Creating or Updating an Employee
+   * @param employeeForm 
+   */
+  patchEmployee(employeeForm:Employee):void
   {
     if(!this.id)
     {
       this.employeeService.addData(employeeForm).subscribe(()=>
       {
-        this.route.navigate(['/employees'])
+        alert("Employee Created");
+        this.route.navigate(['/employees']);
       })
     }
     else
     {
       this.employeeService.editData(employeeForm,this.id).subscribe(()=>
       {
-        this.route.navigate(['/employees'])
+        alert("Employee Updated");
+        this.route.navigate(['/employees']);
       })
       
     }

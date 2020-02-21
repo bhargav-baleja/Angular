@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-</html>
-
 
 <button routerLink="employee-form-container">+ CREATE</button>
-<input type="text" placeholder="Search" (keyup)="searchData($event.target .value)" size="131"/>
+<input type="text" placeholder="Search" (keyup)="searchData($event.target .value)" size="130"/>
 <table border="2px" style="text-size-adjust: 100px;">
     <tr>
         <th>Full Name
@@ -25,10 +15,7 @@
             <button class="glyphicon" id="mobileNumber" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
             <button class="glyphicon" id="mobileNumber" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
         </th>
-        <th>Address
-            <button class="glyphicon" id="address" (click)="sortAscending()" style="cursor: grabbing;" >&#xe113;</button> 
-            <button class="glyphicon" id="address" (click)="sortDescending()" style="cursor: grabbing;" >&#xe114;</button>
-        </th>
+        <th>Address</th>
         <th>Department
             <button class="glyphicon" id="department" (click)="sortAscending()" style="cursor: grabbing;">&#xe113;</button> 
             <button class="glyphicon" id="department" (click)="sortDescending()" style="cursor: grabbing;">&#xe114;</button>
@@ -39,9 +26,9 @@
         <td>{{employee.fullName}}</td>
         <td>{{employee.emailId}}</td>
         <td>{{employee.mobileNumber}}</td>
-        <td><span *ngFor="let add of employee.address">{{add.street + add.city + add.state + add.zipCode}}</span></td>
+        <td><span *ngFor="let address of employee.address">{{address.street}}, {{address.city}}, {{address.state}}, {{address.zipCode}}</span></td>
         <td>{{employee.department}}</td>
-        <button routerLink="employee-form-container/{{employee.id}}">Edit</button>
+        <button [routerLink]="['employee-form-container',employee.id]">Edit</button>
         <button (click)="onDelete(employee.id)">Delete</button>
     </tr>
 </table>
