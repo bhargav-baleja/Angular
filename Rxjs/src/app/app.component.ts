@@ -14,6 +14,7 @@ export class AppComponent {
   employeeDetails$:Observable<Employee[]>
   constructor(private httpClient:HttpClient){
     this.getEmployeeDetails()
+
   }
 
   getEmployeeDetails()
