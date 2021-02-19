@@ -1,0 +1,148 @@
+{
+    "employees": [
+      {
+        "fullName": "Bhargav Baleja",
+        "emailId": "bhargav.baleja.11@gmail.com",
+        "address": [
+          {
+            "city": "Valsad",
+            "street": "B-10 Rajannagar Nandanvan Socitey Abrama",
+            "zipCode": "396001",
+            "state": "Gujarat"
+          }
+        ],
+        "mobileNumber": "9426896220",
+        "department": "Angular",
+        "gender": "male",
+        "hireDate": "2020-12-03",
+        "permanent": true,
+        "id": 1
+      },
+      {
+        "fullName": "Aastha Yadav",
+        "emailId": "aastha@gmail.com",
+        "address": [
+          {
+            "city": "Navsari",
+            "street": "Railway road",
+            "zipCode": "396009",
+            "state": "Gujrat"
+          }
+        ],
+        "mobileNumber": "1447255839",
+        "department": "UI/UX",
+        "gender": "female",
+        "hireDate": "2020-02-17",
+        "permanent": true,
+        "id": 5
+      },
+      {
+        "fullName": "Shiv Desai",
+        "emailId": "shiv@gmail.com",
+        "address": [
+          {
+            "city": "Valsad",
+            "street": "Halar road",
+            "zipCode": "396001",
+            "state": "Gujrat"
+          }
+        ],
+        "mobileNumber": "7889455623",
+        "department": "UI/UX",
+        "gender": "male",
+        "hireDate": "2020-02-19",
+        "permanent": "",
+        "id": 6
+      },
+      {
+        "fullName": "Samip",
+        "emailId": "samip@gmail.com",
+        "address": [
+          {
+            "city": "Valsad",
+            "street": "VASHIYAR BRANCH",
+            "zipCode": "396001",
+            "state": "Gujrat"
+          }
+        ],
+        "mobileNumber": "0987984342",
+        "department": "QA",
+        "gender": "male",
+        "hireDate": "2020-11-10",
+        "permanent": false,
+        "id": 7
+      },
+      {
+        "fullName": "Tapas Vashi",
+        "emailId": "tapas@gmail.com",
+        "address": [
+          {
+            "city": "Vapi",
+            "street": "Civil Road",
+            "zipCode": "396001",
+            "state": "Gujarat"
+          }
+        ],
+        "mobileNumber": "1223455678",
+        "department": "Angular",
+        "gender": "male",
+        "hireDate": "2020-04-16",
+        "permanent": true,
+        "id": 8
+      },
+      {
+        "fullName": "Kiren",
+        "emailId": "kiren@gmail.com",
+        "address": [
+          {
+            "city": "Valsad",
+            "street": "Kosamba",
+            "zipCode": "396001",
+            "state": "Gujrat"
+          }
+        ],
+        "mobileNumber": "5689754122",
+        "department": ".Net",
+        "gender": "male",
+        "hireDate": "2021-12-15",
+        "permanent": true,
+        "id": 9
+      },
+      {
+        "fullName": "Dhruvit",
+        "emailId": "dhruvit",
+        "address": [
+          {
+            "city": "Valsad",
+            "street": "Tithal Road",
+            "zipCode": "396001",
+            "state": "Gujrat"
+          }
+        ],
+        "mobileNumber": "5698785412",
+        "department": "Angular",
+        "gender": "male",
+        "hireDate": "2020-02-29",
+        "permanent": "",
+        "id": 10
+      },
+      {
+        "fullName": "Amit",
+        "emailId": "amit@123",
+        "address": [
+          {
+            "city": "Thane",
+            "street": "Lal Baag",
+            "zipCode": "987451",
+            "state": "Maharastra"
+          }
+        ],
+        "mobileNumber": "5987854132",
+        "department": "Angular",
+        "gender": "male",
+        "hireDate": "2020-06-27",
+        "permanent": "",
+        "id": 11
+      }
+    ]
+  }
